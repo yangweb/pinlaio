@@ -9,45 +9,35 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  WebView
 } from 'react-native';
+
+let APP_URL = 'http://c.guapin.com/app/';
 
 export default class Pinla extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+      <View style={{flex:1}}>
+        <Text style={{height:20}}>
+          
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <WebView style={styles.webView_w}
+          source={{uri:APP_URL}}
+          startInLoadingState={true}
+          domStorageEnabled={true}
+          javaScriptEnabled={true}
+        >
+        </WebView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    webView_w:{
+      backgroundColor:'#FFF',
+    }
 });
 
 AppRegistry.registerComponent('Pinla', () => Pinla);
